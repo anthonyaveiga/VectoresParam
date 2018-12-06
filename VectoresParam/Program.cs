@@ -30,7 +30,6 @@ namespace VectoresParam
             foreach (int num in x)
             {
                 Console.WriteLine("Elemento {0}", num);
-
             }
         }
     }
