@@ -14,6 +14,12 @@ namespace VectoresParam
             int[] x = new int[MAX];
             leer(x);
             imprimir(x);
+            
+            Console.WriteLine(buscar(x, 5));
+            if (buscar(x, 15))
+                Console.WriteLine("encontrado");
+            else
+                Console.WriteLine("No existe");
             Console.ReadKey();
         }
 
@@ -31,6 +37,33 @@ namespace VectoresParam
             {
                 Console.WriteLine("Elemento {0}", num);
             }
+        }
+        public static bool buscar(int []x, int y)
+        {
+            bool encontrado = false;
+            foreach (int num in x)
+            {
+                if(num == y)
+                {
+                    encontrado = true;
+                    break;
+                }
+            }
+            return encontrado;
+        }
+        public static bool buscar2(int[] x, int y)
+        {
+            bool encontrado = false;
+            int i = 0;
+            while(i<MAX && encontrado == false)
+            {
+                if (x[i] == y)
+                {
+                    encontrado = true;
+                    i++;
+                }
+            }
+            return encontrado;
         }
     }
 }
