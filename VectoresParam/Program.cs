@@ -12,16 +12,25 @@ namespace VectoresParam
         static void Main(string[] args)
         {
             int[] x = new int[MAX];
-            leer(x);
-            imprimir(x);
-            
-            Console.WriteLine(buscar(x, 5));
-            if (buscar(x, 15))
-                Console.WriteLine("encontrado");
-            else
-                Console.WriteLine("No existe");
+            string[] nombres = new string[MAX];
+
+            //leer(x);
+            //ordenar(x);
+            //imprimir(x);
+
+
+            /* Console.WriteLine(buscar(x, 5));
+              if (buscar(x, 15))
+                  Console.WriteLine("encontrado");
+              else
+                  Console.WriteLine("No existe");
+             */
+
+            leerNombres(nombres);
+            imprimirNombres(nombres);
             Console.ReadKey();
         }
+
 
         public static void leer(int[] x)
         {
@@ -31,9 +40,42 @@ namespace VectoresParam
                 x[i] = Int32.Parse(Console.ReadLine());
             }
         }
+
+        public static void leerNombres(string[] x)
+        {
+            for (int i = 0; i < MAX; i++)
+            {
+                Console.WriteLine("Ingrese el elemento {0}", i + 1);
+                x[i] = Console.ReadLine();
+            }
+        }
+
+        public static void ordenar(int []x)
+        {
+            int aux = 0;
+            for(int i = 0; i < x.Length; i++)
+            {
+                for(int j = i + 1; j < x.Length; j++)
+                {
+                    if(x[i] > x[j])
+                    {
+                        aux = x[i];
+                        x[i] = x[j];
+                        x[j] = aux;
+                    }
+                }
+            }
+        }
         public static void imprimir(int[] x)
         {
             foreach (int num in x)
+            {
+                Console.WriteLine("Elemento {0}", num);
+            }
+        }
+        public static void imprimirNombres(string[] x)
+        {
+            foreach (string num in x)
             {
                 Console.WriteLine("Elemento {0}", num);
             }
